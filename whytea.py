@@ -19,6 +19,7 @@ def parse_commandline():
 	return m.group(1)
 	
 
+# Based on code from http://geniusofevil.wordpress.com/2009/04/30/howto-get-direct-youtube-video-flv-url/ 
 # url, info = get_videoinfo('iMvHEijEwUw')
 def get_videoinfo(videoID):
 	params = urllib.urlencode({'video_id':videoID})
@@ -54,4 +55,5 @@ p = subprocess.Popen('ffmpeg -i %s -vn -ac 2 -aq 70 -acodec vorbis %s.ogg' % (te
 os.waitpid(p.pid, 0)
 
 os.remove(tempname)
+
 
